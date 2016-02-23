@@ -10,11 +10,11 @@ import java.util.Collection;
 import java.util.Iterator;
 
 @RunWith(Parameterized.class)
-public class SuccessFilterIterator extends AbstractFilterIteratorTest {
+public class SuccessFilterIteratorTest extends AbstractFilterIteratorTest {
     private Iterator<Integer> expectedOutput;
 
-    public SuccessFilterIterator(Validate<Integer> validate,
-                                 Integer[] expectedOutput, Integer... values) {
+    public SuccessFilterIteratorTest(Validate<Integer> validate,
+                                     Integer[] expectedOutput, Integer... values) {
         super(validate, values);
         this.expectedOutput = Arrays.asList(expectedOutput).iterator();
     }
