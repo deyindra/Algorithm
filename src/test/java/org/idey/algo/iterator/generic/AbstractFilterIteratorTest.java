@@ -1,4 +1,6 @@
-package org.idey.algo.iterator;
+package org.idey.algo.iterator.generic;
+
+import org.idey.algo.iterator.generic.Validate;
 
 import java.util.Arrays;
 import java.util.Iterator;

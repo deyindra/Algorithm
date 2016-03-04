@@ -1,7 +1,6 @@
-package org.idey.algo.iterator;
+package org.idey.algo.iterator.generic;
 
 import org.idey.algo.rule.ExceptionLoggingRule;
-import org.junit.Assert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.ExpectedException;
@@ -10,33 +9,32 @@ import org.junit.runners.Parameterized;
 
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Iterator;
 
 @RunWith(Parameterized.class)
-public class FailedMergeIteratorTest extends AbstractMergeIteratorTest{
-
-    public FailedMergeIteratorTest(Iterator<Integer>[] iterators) {
-        super(iterators);
+public class FailedFilterIteratorTest extends AbstractFilterIteratorTest{
+    public FailedFilterIteratorTest(Validate<Integer> validate, Integer... values) {
+        super(validate, values);
     }
 
     @Rule
     public ExceptionLoggingRule exceptionLoggingRule = new ExceptionLoggingRule();
     @Rule public ExpectedException expectedException = ExpectedException.none();
 
-
     @Parameterized.Parameters
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{
-                {null},
-                {(Iterator<Integer>[])new Iterator[]{}}
+                {null, new Integer[]{2,3,4,5,6}},
+                {(Validate<Integer>) object -> object != null, null}
         });
     }
 
-    @Test
-    public void testMergeIterator(){
-        expectedException.expect(Exception.class);
-        Iterator<Integer> mergeIterator = new MergeIterator<>(iterators);
-        mergeIterator.next();
-    }
 
+    @Test
+    public void failedTest(){
+        expectedException.expect(Exception.class);
+        FilterIterator<Integer> filterIterator = new FilterIterator<>(iterator,validate);
+        if(validate!=null){
+            filterIterator.next();
+        }
+    }
 }

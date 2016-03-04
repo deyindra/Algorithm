@@ -1,4 +1,4 @@
-package org.idey.algo.iterator;
+package org.idey.algo.iterator.generic;
 
 import org.junit.Assert;
 import org.junit.Test;

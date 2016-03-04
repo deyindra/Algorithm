@@ -1,9 +1,14 @@
-package org.idey.algo.iterator;
+package org.idey.algo.iterator.generic;
 
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.PriorityQueue;
 
+/**
+ * @author indranildey
+ * an Iterator class which does the K way mergeing between sorted object
+ * @param <T>
+ */
 public class MergeIterator<T extends Comparable<T>> implements Iterator<T>, Iterable<T> {
     private Iterator<T>[] arrayIterator;
     private PriorityQueue<Node<T>> priorityQueue;
