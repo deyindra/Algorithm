@@ -14,19 +14,20 @@ import java.util.Iterator;
 @RunWith(Parameterized.class)
 public class SuccessTreeTraversalIteratorTest extends AbstractTreeTraversalIteratorTest{
 
-    public SuccessTreeTraversalIteratorTest(int depth,
-                                            Integer[] expectedOutput,
+    public SuccessTreeTraversalIteratorTest(Integer[] expectedOutput,
                                             TraversalType type) {
-        super(depth, expectedOutput, type);
+        super(expectedOutput, type);
     }
 
     @Parameterized.Parameters
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][]{
-                {0,new Integer[]{1,2,4,5,3},TraversalType.PREORDER},
-                {0,new Integer[]{4,2,5,1,3},TraversalType.INORDER},
-                {0,new Integer[]{4,5,2,3,1},TraversalType.POSTORDER},
-                {0,new Integer[]{1,2,3,4,5},TraversalType.LEVELORDER},
+                {new Integer[]{1,2,4,5,3},TraversalType.PREORDER},
+                {new Integer[]{4,2,5,1,3},TraversalType.INORDER},
+                {new Integer[]{4,5,2,3,1},TraversalType.POSTORDER},
+                {new Integer[]{1,2,3,4,5},TraversalType.LEVELORDER},
+                {new Integer[]{1,2,3},TraversalType.ADVANCELEVELORDER_TILL_LEVEL_1},
+                {new Integer[]{1,2,3,4,5},TraversalType.ADVANCELEVELORDER_TILL_LEVEL_10},
         });
     }
 

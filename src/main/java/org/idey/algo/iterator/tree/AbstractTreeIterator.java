@@ -7,7 +7,9 @@ import java.util.Iterator;
 
 public abstract class AbstractTreeIterator<E> implements Iterator<E> {
     protected AbstractTreeIterator(TreeNode<E> root){
-        assert(root!=null);
+        if(root==null){
+            throw new IllegalArgumentException("Invalid Tree root");
+        }
     }
 
     @Override
