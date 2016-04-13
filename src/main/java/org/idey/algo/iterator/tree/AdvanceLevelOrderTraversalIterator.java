@@ -3,7 +3,10 @@ package org.idey.algo.iterator.tree;
 import org.idey.algo.ds.tree.TreeNode;
 
 import java.util.NoSuchElementException;
-
+/**
+ * @author indranildey
+ * Level Order search iterator for Tree till certain depth
+ */
 public class AdvanceLevelOrderTraversalIterator<E> extends AbstrackBFSIterator<E> {
     private int currentLevel;
     private int maxLevel;

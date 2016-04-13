@@ -4,6 +4,10 @@ import org.idey.algo.ds.tree.TreeNode;
 
 import java.util.NoSuchElementException;
 
+/**
+ * @author indranildey
+ * Pre Order search iterator for Tree
+ */
 public class PreOrderTraversalIterator<E> extends AbstractTreeDFSIterator<E> {
     public PreOrderTraversalIterator(TreeNode<E> root) {
         super(root);

@@ -6,6 +6,10 @@ import java.util.LinkedList;
 import java.util.NoSuchElementException;
 import java.util.Queue;
 
+/**
+ * @author indranildey
+ * Breadth First Search Iterator for Graph
+ */
 public class BFSGraphTraversalIterator<T> extends AbstractGraphTraversalIterator<T> {
     private Queue<T> queue;
 

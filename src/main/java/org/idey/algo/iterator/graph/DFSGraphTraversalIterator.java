@@ -5,7 +5,10 @@ import org.idey.algo.ds.graph.Graph;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.Stack;
-
+/**
+ * @author indranildey
+ * Depth First Search Iterator for Graph
+ */
 public class DFSGraphTraversalIterator<T> extends AbstractGraphTraversalIterator<T>{
     private Stack<Iterator<T>> neighbours;
     private T next;

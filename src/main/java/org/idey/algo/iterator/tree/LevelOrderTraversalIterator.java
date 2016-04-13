@@ -4,6 +4,10 @@ import org.idey.algo.ds.tree.TreeNode;
 
 import java.util.NoSuchElementException;
 
+/**
+ * @author indranildey
+ * Level Order search iterator for Tree
+ */
 public class LevelOrderTraversalIterator<E> extends AbstrackBFSIterator<E> {
     public LevelOrderTraversalIterator(TreeNode<E> root) {
         super(root);

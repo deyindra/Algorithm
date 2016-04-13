@@ -45,5 +45,11 @@ public class TreeNode<E> {
         return data != null ? data.hashCode() : 0;
     }
 
-
+    @Override
+    public String toString() {
+        final StringBuilder sb = new StringBuilder("TreeNode{");
+        sb.append("data=").append(data);
+        sb.append('}');
+        return sb.toString();
+    }
 }

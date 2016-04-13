@@ -3,7 +3,10 @@ package org.idey.algo.iterator.tree;
 import org.idey.algo.ds.tree.TreeNode;
 
 import java.util.NoSuchElementException;
-
+/**
+ * @author indranildey
+ * Post Order search iterator for Tree
+ */
 public class PostOrderTraversalIterator<E> extends AbstractTreeDFSIterator<E> {
     public PostOrderTraversalIterator(TreeNode<E> root) {
         super(root);
