@@ -10,12 +10,13 @@ public class ConcurrentObjectPool<T> implements ObjectPool<T> {
     private Set<PooledObject<T>> lock;
     private PoolObjectFactory<T> poolObkectFactory;
 
-    public ConcurrentObjectPool() {
+    public ConcurrentObjectPool(PoolObjectFactory<T> poolObkectFactory) {
         ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
         readLock = lock.readLock();
         writeLock = lock.writeLock();
         unlock = new LinkedHashSet<>();
         this.lock = new LinkedHashSet<>();
+        this.poolObkectFactory = poolObkectFactory;
     }
 
     @Override
