@@ -111,4 +111,17 @@ public class IntersectionIterator<T extends Comparable<T>> implements Iterator<T
         hasNext=true;
     }
 
+    public static void main(String[] args) {
+        Iterator<Integer> iterator1 = Arrays.asList(1,2,3,4,5).iterator();
+        Iterator<Integer> iterator2 = Arrays.asList(2,4,5,7).iterator();
+        Iterator<Integer> iterator3 = Arrays.asList(1,2,5).iterator();
+
+        IntersectionIterator it = new IntersectionIterator<>(new Iterator[]{iterator1,iterator2,iterator3});
+        while (it.hasNext()){
+            System.out.println(it.next());
+        }
+
+
+    }
+
 }
