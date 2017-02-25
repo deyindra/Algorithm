@@ -2,6 +2,7 @@ package org.idey.algo.ds.graph;
 
 import java.util.*;
 
+@SuppressWarnings("ALL")
 public class Graph<T> {
     private Map<T, Set<T>> map;
     private boolean isDirected;
