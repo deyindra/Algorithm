@@ -1,16 +1,27 @@
 package org.idey.algo.oops.pool.object;
 
 import java.io.*;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Serialization {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
-        FileInputStream fileIn =new FileInputStream("/Users/i.dey/Downloads/employee.ser");
-        ObjectInputStream in = new ObjectInputStream(fileIn);
-        Employee emp = (Employee) in.readObject();
-        in.close();
-        fileIn.close();
-        System.out.println(emp);
+//        FileInputStream fileIn =new FileInputStream("/Users/i.dey/Downloads/employee.ser");
+//        ObjectInputStream in = new ObjectInputStream(fileIn);
+//        Employee emp = (Employee) in.readObject();
+//        in.close();
+//        fileIn.close();
+//        System.out.println(emp);
+
+        Set<Class<? extends Exception>> sets = new HashSet<>();
+        sets.add(IllegalArgumentException.class);
+        sets.add(NullPointerException.class);
+
+        Exception e = new NullPointerException();
+
+        System.out.println(sets.contains(e.getClass()));
+
     }
 
     private static class Employee implements Serializable{
