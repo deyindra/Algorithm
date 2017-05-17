@@ -15,12 +15,11 @@ public class Serialization {
 //        System.out.println(emp);
 
         Set<Class<? extends Exception>> sets = new HashSet<>();
-        sets.add(IllegalArgumentException.class);
+        sets.add(RuntimeException.class);
         sets.add(NullPointerException.class);
 
-        Exception e = new NullPointerException();
+        System.out.println(sets.contains(IllegalArgumentException.class));
 
-        System.out.println(sets.contains(e.getClass()));
 
     }
 
