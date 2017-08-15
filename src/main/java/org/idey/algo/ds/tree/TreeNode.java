@@ -25,6 +25,16 @@ public class TreeNode<E> {
         return right;
     }
 
+    public TreeNode<E> addLeft(TreeNode<E> left){
+        this.left = left;
+        return this;
+    }
+
+    public TreeNode<E> addRight(TreeNode<E> right){
+        this.right = right;
+        return this;
+    }
+
     public E getData() {
         return data;
     }
