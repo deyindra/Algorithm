@@ -1,5 +1,8 @@
 package org.idey.algo.ds.tree;
 
+
+import java.util.Stack;
+
 public class TreeUtil {
     public static <T> TreeNode<T> buildTree(T[] array, final int low, final int high){
         if(low>high){
@@ -30,6 +33,7 @@ public class TreeUtil {
         Integer[] array = new Integer[]{1,2,3,4,5,6};
         Tree<Integer> tree = new Tree<>(buildTree(array,0,array.length-1));
         System.out.println(tree);
+        System.out.println(getNthSmallestOrLargestElement(tree.getRoot(),2, false));
         System.out.println(isBST(tree.getRoot()));
         TreeNode<Integer> root = new TreeNode<>(4);
         root.addLeft(new TreeNode<>(2)).addRight(new TreeNode<>(5));
@@ -68,6 +72,26 @@ public class TreeUtil {
             return isBST(node.getRight(),wrapper);
         }
     }
+
+    public static <E extends Comparable<E>> E getNthSmallestOrLargestElement(TreeNode<E> root, int k, boolean isSmallest){
+        Stack<TreeNode<E>> stack = new Stack<>();
+        TreeNode<E> value = root;
+        int count=1;
+        E result = root.getData();
+        while (!stack.isEmpty() || value!=null){
+            if(value != null) {
+                stack.push(value);
+                value = isSmallest ? value.getLeft() : value.getRight();
+            } else {
+                value = stack.pop();
+                result = value.getData();
+                if(count++ == k) break;
+                value = isSmallest? value.getRight() : value.getLeft();
+            }
+        }
+        return result;
+    }
+
     public static <E extends Comparable<E>> boolean isBST(TreeNode<E> root){
         TreeNodeWrapper<E> wrapper = new TreeNodeWrapper<>();
         wrapper.setNode(null);
