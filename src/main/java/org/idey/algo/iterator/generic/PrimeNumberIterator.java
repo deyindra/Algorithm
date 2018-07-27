@@ -10,14 +10,14 @@ public class PrimeNumberIterator implements Iterator<Integer>{
     private int nextNumber;
 
     public PrimeNumberIterator(int upperLimit) {
-        if(upperLimit<0){
+        if(upperLimit<2){
             throw new IllegalArgumentException("Invalid upper limit");
         }
-        this.upperLimit = upperLimit;
-        bitSet = new BitSet(upperLimit);
+        this.upperLimit = upperLimit+1;
+        bitSet = new BitSet(this.upperLimit);
         bitSet.set(0,false);
         bitSet.set(1, false);
-        bitSet.set(2, upperLimit, true);
+        bitSet.set(2, this.upperLimit, true);
         nextNumber=2;
         setAdvance();
     }
@@ -56,6 +56,13 @@ public class PrimeNumberIterator implements Iterator<Integer>{
     @Override
     public void remove() {
         throw new UnsupportedOperationException();
+    }
+
+    public static void main(String[] args) {
+        Iterator<Integer> it = new PrimeNumberIterator(2);
+        while (it.hasNext()){
+            System.out.println(it.next());
+        }
     }
 
 }
