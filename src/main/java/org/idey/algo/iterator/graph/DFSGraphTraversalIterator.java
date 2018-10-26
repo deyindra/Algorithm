@@ -53,4 +53,19 @@ public class DFSGraphTraversalIterator<T> extends AbstractGraphTraversalIterator
         }while (this.visited.contains(this.next));
         this.neighbours.push(graph.getNeighbors(this.next).iterator());
     }
+
+    public static void main(String[] args) {
+        Graph<Integer> graph = new Graph<>(true);
+        graph.addEdge(1,2);
+        graph.addEdge(1,3);
+        graph.addEdge(2,4);
+        graph.addEdge(4,1);
+        graph.addEdge(5,null);
+
+
+        DFSGraphTraversalIterator<Integer> dfs = new DFSGraphTraversalIterator<>(1,graph);
+        while (dfs.hasNext()){
+            System.out.println(dfs.next());
+        }
+    }
 }

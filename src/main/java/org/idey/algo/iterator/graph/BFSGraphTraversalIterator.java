@@ -40,4 +40,18 @@ public class BFSGraphTraversalIterator<T> extends AbstractGraphTraversalIterator
         return object;
     }
 
+    public static void main(String[] args) {
+        Graph<Integer> graph = new Graph<>(true);
+        graph.addEdge(1,2);
+        graph.addEdge(1,3);
+        graph.addEdge(2,4);
+        graph.addEdge(4,1);
+        graph.addEdge(5,null);
+
+
+        BFSGraphTraversalIterator<Integer> bfs = new BFSGraphTraversalIterator<>(1,graph);
+        while (bfs.hasNext()){
+            System.out.println(bfs.next());
+        }
+    }
 }

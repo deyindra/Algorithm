@@ -23,10 +23,10 @@ public class PrimeNumberIterator implements Iterator<Integer>{
     }
 
     private void setAdvance() {
-        while (nextNumber<=upperLimit){
+        while (nextNumber<upperLimit){
             boolean isPrime = bitSet.get(nextNumber);
             if(isPrime){
-                for(int j=2;j*nextNumber<=upperLimit;j++){
+                for(int j=2;j*nextNumber<upperLimit;j++){
                     bitSet.set(j*nextNumber,false);
                 }
                 break;
@@ -39,7 +39,7 @@ public class PrimeNumberIterator implements Iterator<Integer>{
 
     @Override
     public boolean hasNext() {
-        return nextNumber<=upperLimit;
+        return nextNumber<upperLimit;
     }
 
     @Override
@@ -59,7 +59,7 @@ public class PrimeNumberIterator implements Iterator<Integer>{
     }
 
     public static void main(String[] args) {
-        Iterator<Integer> it = new PrimeNumberIterator(2);
+        Iterator<Integer> it = new PrimeNumberIterator(1000);
         while (it.hasNext()){
             System.out.println(it.next());
         }

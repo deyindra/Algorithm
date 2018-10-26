@@ -28,17 +28,43 @@ public class TopologicalSort {
         }
         return s;
     }
+
+    public static <T> int connectedComponents(Graph<T> g){
+        Set<T> visited = new HashSet<>();
+        int count=0;
+        for(T node:g.getAllVertices()){
+            if(!visited.contains(node)){
+                connectedComponents(node,g,visited);
+                count++;
+            }
+        }
+        return count;
+    }
+
+    private static <T> void connectedComponents(T node, Graph<T> g, Set<T> visited) {
+        visited.add(node);
+        for(T child:g.getNeighbors(node)){
+            if(!visited.contains(child)){
+                connectedComponents(child,g,visited);
+            }
+        }
+    }
+
+
     public static void main(String[] args) {
-        Graph<Integer> g = new Graph<>(true);
+        Graph<Integer> g = new Graph<>();
         g.addEdge(5,2);
         g.addEdge(5,0);
         g.addEdge(4,0);
         g.addEdge(4,1);
         g.addEdge(2,3);
         g.addEdge(3,1);
-        Stack<Integer> s = topoLogicalSort(g);
-        while (!s.isEmpty()){
-            System.out.println(s.pop());
-        }
+        g.addEdge(7,9);
+//        Stack<Integer> s = topoLogicalSort(g);
+//        while (!s.isEmpty()){
+//            System.out.println(s.pop());
+//        }
+
+        System.out.print(connectedComponents(g));
     }
 }
